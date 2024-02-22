@@ -18,17 +18,80 @@ margin-top: 10px;}
 
 .navbar {
     font-family: 'Courier New', monospace;
-    margin-left: 15%;
+    margin-left: 10%;
     margin-top: 20px;
 }
 
+.loupe {
+    width: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.fa {
+    cursor: pointer;
+
+}
+
+.aboutus {
+    margin-left: 10%;
+    cursor: pointer;
+}
 .breaky {
     margin-left: 10%;
+    cursor: pointer;
+
 }
 .lunch {
     margin-left: 10%;
+    cursor: pointer;
+
 }
 .drinks {
     margin-left: 10%;
-    margin-right: 40%;
+    margin-right: 25%;
+    cursor: pointer;
+
+}
+ .footer {
+    font-family: 'Courier New', monospace;
+    margin-top: 25%;
+    margin-left: 9%;
+ }
+ 
+ .icons {
+    width: 30px;
+    margin-right: 5px;
+ }
+
+ hr {
+    border: 0.5px solid black
+}
+
+.footertext {
+    font-family: 'Courier New', monospace;
+    margin-left: 18%;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+.email {
+    margin-left: 18%;
+}
+
+#email {
+    border: none;
+    height: 30px;
+    width: 300px;
+    border-radius: 8px;
+    background-color: #FAFAFA;
+    margin-bottom: 15px;
+}
+#submit {
+    height: 33px;
+    width: 80px;
+    border: none;
+    background-color: #FAFAFA;
+    border-radius: 8px;
+
 }
