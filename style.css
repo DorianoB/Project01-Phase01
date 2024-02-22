@@ -1,0 +1,17 @@
+body {
+    background-color: antiquewhite;
+}
+
+h1 {
+    margin-left: 30%;
+    font-family: 'Courier New', monospace;
+    margin-top: 68px;
+    font-size: 45px;
+    position: absolute;
+}
+
+.greenLeaf {
+width: 130px;
+margin-left: 54%;
+border-radius: 50%;
+margin-top: 10px;}
