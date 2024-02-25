@@ -23,73 +23,98 @@ const aboutUs = [
       "Welcome to The <strong>Green Leaf Cafe</strong>! Nestled in our vibrant cafe now proudly serves freshly brewed coffee sourced directly from the lush landscapes of Colombia. Immerse yourself in the rich flavors and aromatic notes of our carefully selected beans. Join us at our welcoming space, where the essence of Colombian coffee meets the cozy atmosphere of the Green Leaf Cafe. Experience the perfect blend of nature and indulgence in every cup at our latest venture.",
   },
 ];
-document.getElementsByClassName("lopue").addEventlistener("click");
-document.getElementsByClassName("fa").addEventlistener("click");
-document.getElementById("submit").addEventlistener("click");
+const lopueClick = document.querySelector(".lopue");
+const cart = document.querySelector(".fa");
+const submitClick = document.querySelector("#submit");
 
-const breaky = [
+const breakfast = document.querySelector(".breaky");
+breakfast.addEventListener("click", function () {
+  displayBreakyMenu(breakyMenu);
+});
+
+function displayBreakyMenu(breaky) {
+  menuContainer.innerHTML = "";
+
+  for (let menuItem of breaky) {
+    const listItem = document.createElement("div");
+
+    listItem.innerHTML = `
+        <table>
+        <tr>
+       <th><strong>${menuItem.food}</strong></th>
+       </tr>
+       <tr>
+       <tr><td>${menuItem.items.join(", ")}</td></tr>
+       <tr><td>Vegan: ${menuItem.isVegan ? "Yes" : "No"}</td></tr>
+       <tr><td>Price: $${menuItem.price}</td></tr>
+        </tr>
+      `;
+    menuContainer.appendChild(listItem);
+  }
+}
+const breakyMenu = [
   {
-    food: "banana bread",
+    food: "Banana Bread",
     items: ["banana", "flour", "eggs"],
-    type: "breakfast",
+    type: "Breakfast",
     isVegan: false,
-    price: 15,
+    price: 8.5,
   },
   {
-    food: "breaky roll",
+    food: "Breaky Roll",
     items: ["eggs", "bacon", "cheese"],
-    type: "breakfast",
+    type: "Breakfast",
     isVegan: false,
     price: 15,
   },
   {
-    food: "acai bowl",
-    items: ["acai", "pineaple", "granola"],
-    type: "breakfast",
-    isVegan: false,
-    price: 15,
+    food: "Acai Bowl",
+    items: ["acai", "pineapple", "granola"],
+    type: "Breakfast",
+    isVegan: true,
+    price: 17.5,
   },
 ];
 
-const lunch = [
+const lunchMenu = [
   {
-    food: "pizza",
+    food: "Pizza",
     items: ["dough", "tomato", "mushrooms", "vegam mozarella"],
-    type: "lunch",
+    type: "Lunch",
     isVegan: true,
     price: 20,
   },
   {
-    food: "chicken curry",
-    itmes: ["rice", "currypaste", "chicken"],
-    type: "lunch",
+    food: "Chicken Curry",
+    items: ["rice", "currypaste", "chicken"],
+    type: "Lunch",
     isVegan: false,
-    price: 10,
+    price: 18,
   },
   {
-    food: "sourdough sandwich",
+    food: "Sourdough Sandwich",
     items: ["ham", "cheese", "pumpkin"],
-    type: "lunch",
+    type: "Lunch",
     isVegan: false,
-    price: 17.2,
+    price: 14.2,
   },
 ];
 
-const drinks = [
+const drinksMenu = [
   {
-    cafe: "flat white",
+    cafe: "Flat White",
     type: ["short", "regular", "large"],
     isVegan: false,
     price: [4.5, 5.5, 6.5],
   },
   {
-    cafe: "cappuccino",
+    cafe: "Cappuccino",
     type: ["short", "regular", "large"],
     isVegan: false,
     price: [4.5, 5.5, 6.5],
   },
   {
-    cafe: "long black",
+    cafe: "Long Black",
     type: ["short", "regular", "large"],
     isVegan: true,
     price: [4.5, 5.5, 6.5],
