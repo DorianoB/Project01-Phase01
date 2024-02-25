@@ -30,38 +30,65 @@ margin-top: 10px;}
 
 .fa {
     cursor: pointer;
-
 }
+.fa:hover {
+    text-decoration: underline;
+  } 
 
 .aboutus {
     margin-left: 10%;
     cursor: pointer;
 }
+.aboutus:hover {
+    text-decoration: underline;
+  }
+
 .breaky {
     margin-left: 10%;
     cursor: pointer;
-
 }
+.breaky:hover {
+    text-decoration: underline;
+  } 
+
 .lunch {
     margin-left: 10%;
     cursor: pointer;
-
 }
+.lunch:hover {
+    text-decoration: underline;
+  } 
+
 .drinks {
     margin-left: 10%;
     margin-right: 25%;
     cursor: pointer;
-
 }
- .footer {
+.drinks:hover {
+    text-decoration: underline;
+  } 
+
+#menuContainer {
     font-family: 'Courier New', monospace;
-    margin-top: 25%;
+    font-size: 20px;
+    /* border: solid 1px grey;  */
+    margin-left: 20%;
+    margin-top: 7%;
+    margin-right: 30%; 
+    text-align: left;
+} 
+
+ .footer {
+    position: relative;
+    font-family: 'Courier New', monospace;
+    margin-top: 27%;
     margin-left: 9%;
  }
  
  .icons {
     width: 30px;
-    margin-right: 5px;
+    padding: left 0;
+    margin: left 5px;;
  }
 
  hr {
@@ -71,7 +98,7 @@ margin-top: 10px;}
 .footertext {
     font-family: 'Courier New', monospace;
     margin-left: 18%;
-    margin-top: 30px;
+    margin-top: 40px;
     font-weight: bold;
 }
 
@@ -85,7 +112,6 @@ margin-top: 10px;}
     width: 300px;
     border-radius: 8px;
     background-color: #FAFAFA;
-    margin-bottom: 15px;
 }
 #submit {
     height: 33px;
