@@ -14,7 +14,37 @@ h1 {
 width: 130px;
 margin-left: 54%;
 border-radius: 50%;
-margin-top: 10px;}
+margin-top: 10px;
+}
+.coffe {
+    position: relative;
+    width: 300px;
+    left: 6%;
+    margin-bottom: 20px;
+
+}
+.coffeMachine {
+    position: relative;
+    width: 273px;
+    left: 3%;
+    margin-bottom: 0px;
+    border-radius: 20px;
+}
+.beans {
+    position: relative;
+    width: 320px;
+    left: 11%;
+    margin-bottom: 20px;
+}
+.meal {
+    position: relative;
+    width: 320px;
+    left: 7%;
+    margin-bottom: 0px;
+    border-radius: 20px;
+
+}
+
 
 .navbar {
     font-family: 'Courier New', monospace;
@@ -73,7 +103,7 @@ margin-top: 10px;}
     font-size: 20px;
     /* border: solid 1px grey;  */
     margin-left: 25%;
-    margin-top: 7%;
+    margin-top: 3%;
     margin-right: 30%; 
     text-align: left;
 } 
@@ -81,8 +111,9 @@ margin-top: 10px;}
  .footer{
     position: relative;
     font-family: 'Courier New', monospace;
-    margin-top: 20%;
+    margin-top: 10px;
     margin-left: 9%;
+    margin-bottom: 10px;
  }
  
  .icons {
