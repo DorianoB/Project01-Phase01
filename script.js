@@ -41,12 +41,13 @@ function displayBreakyMenu(breaky) {
     listItem.innerHTML = `
         <table>
         <tr>
-       <th><strong>${menuItem.food}</strong></th>
+       <th><strong>${menuItem.food}${
+      menuItem.isVegan ? "(V)" : ""
+    }</strong></th>
        </tr>
        <tr>
        <tr><td>${menuItem.items.join(", ")}</td></tr>
-       <tr><td>Vegan: ${menuItem.isVegan ? "Yes" : "No"}</td></tr>
-       <tr><td>Price: $${menuItem.price}</td></tr>
+       <tr><td>$${menuItem.price}</td></tr>
         </tr>
         </table>
       `;
@@ -91,12 +92,13 @@ function displayLunchMenu(lunch) {
     listItem.innerHTML = `
     <table>
     <tr>
-   <th><strong>${lunchItem.food}</strong></th>
+    <th><strong>${lunchItem.food}${
+      lunchItem.isVegan ? " (V)" : ""
+    }</strong></th>
    </tr>
    <tr>
    <tr><td>Ingredients: ${lunchItem.items.join(", ")}</td></tr>
-   <tr><td>Vegan: ${lunchItem.isVegan ? "Yes" : "No"}</td></tr>
-   <tr><td>Price: $${lunchItem.price}</td></tr>
+   <tr><td>$${lunchItem.price}</td></tr>
     </tr>
     </table>
     `;
@@ -107,7 +109,7 @@ function displayLunchMenu(lunch) {
 const lunchMenu = [
   {
     food: "Pizza",
-    items: ["dough", "tomato", "mushrooms", "vegam mozarella"],
+    items: ["dough", "tomato", "mushrooms", "vegan mozarella"],
     type: "Lunch",
     isVegan: true,
     price: 20,
@@ -143,9 +145,8 @@ function displayDrinksMenu(drinks) {
     <tr>
     <th><strong>${drinksMenu.cafe}</strong></th>
     </tr>
-    <tr><td>Size: ${drinksMenu.size.join(", ")}</td></tr>
-    <tr><td>Vegan: ${drinksMenu.isVegan ? "Yes" : "No"}</td></tr>
-    <tr><td>Price: ${drinksMenu.price.join(", ")}</td></tr>
+    <tr><td>${drinksMenu.size.join(", ")}</td></tr>
+    <tr><td>$${drinksMenu.price.join(" / $")}</td></tr>
     <tr><td>Extras $2: ${drinksMenu.extras}</td></tr>
     </table>
     `;
@@ -158,21 +159,18 @@ const drinksMenu = [
   {
     cafe: "Flat White",
     size: ["small", "medium", "large"],
-    isVegan: false,
     price: [4.5, 5.5, 6.5],
     extras: ["soya milk", " almond milk", " oat milk"],
   },
   {
     cafe: "Cappuccino",
     size: ["small", "medium", "large"],
-    isVegan: false,
     price: [4.5, 5.5, 6.5],
     extras: ["soya milk", " almond milk", "oat milk"],
   },
   {
     cafe: "Long Black",
     size: ["small", "medium", "large"],
-    isVegan: true,
     price: [4.5, 5.5, 6.5],
     extras: ["soya milk", " almond milk", " oat milk"],
   },
