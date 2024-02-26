@@ -76,6 +76,32 @@ const breakyMenu = [
   },
 ];
 
+const lunch = document.querySelector(".lunch");
+lunch.addEventListener("click", function () {
+  displayLunchMenu(lunchMenu);
+});
+
+function displayLunchMenu(lunch) {
+  menuContainer.innerHTML = "";
+
+  for (let lunchItem of lunch) {
+    const listItem = document.createElement("div");
+
+    listItem.innerHTML = `
+    <table>
+    <tr>
+   <th><strong>${lunchItem.food}</strong></th>
+   </tr>
+   <tr>
+   <tr><td>Ingredients: ${lunchItem.items.join(", ")}</td></tr>
+   <tr><td>Vegan: ${lunchItem.isVegan ? "Yes" : "No"}</td></tr>
+   <tr><td>Price: $${lunchItem.price}</td></tr>
+    </tr>
+    `;
+
+    menuContainer.appendChild(listItem);
+  }
+}
 const lunchMenu = [
   {
     food: "Pizza",
