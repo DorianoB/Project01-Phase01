@@ -48,6 +48,7 @@ function displayBreakyMenu(breaky) {
        <tr><td>Vegan: ${menuItem.isVegan ? "Yes" : "No"}</td></tr>
        <tr><td>Price: $${menuItem.price}</td></tr>
         </tr>
+        </table>
       `;
     menuContainer.appendChild(listItem);
   }
@@ -97,6 +98,7 @@ function displayLunchMenu(lunch) {
    <tr><td>Vegan: ${lunchItem.isVegan ? "Yes" : "No"}</td></tr>
    <tr><td>Price: $${lunchItem.price}</td></tr>
     </tr>
+    </table>
     `;
 
     menuContainer.appendChild(listItem);
@@ -126,28 +128,52 @@ const lunchMenu = [
   },
 ];
 
+const drinks = document.querySelector(".drinks");
+drinks.addEventListener("click", function () {
+  displayDrinksMenu(drinksMenu);
+});
+
+function displayDrinksMenu(drinks) {
+  menuContainer.innerHTML = "";
+
+  for (let drinksMenu of drinks) {
+    const listItem = document.createElement("div");
+    listItem.innerHTML = `
+    <table>
+    <tr>
+    <th><strong>${drinksMenu.cafe}</strong></th>
+    </tr>
+    <tr><td>Size: ${drinksMenu.size.join(", ")}</td></tr>
+    <tr><td>Vegan: ${drinksMenu.isVegan ? "Yes" : "No"}</td></tr>
+    <tr><td>Price: ${drinksMenu.price.join(", ")}</td></tr>
+    <tr><td>Extras $2: ${drinksMenu.extras}</td></tr>
+    </table>
+    `;
+
+    menuContainer.appendChild(listItem);
+  }
+}
+
 const drinksMenu = [
   {
     cafe: "Flat White",
-    type: ["short", "regular", "large"],
+    size: ["short", "regular", "large"],
     isVegan: false,
     price: [4.5, 5.5, 6.5],
+    extras: ["soya milk", " almond milk", " oat milk"],
   },
   {
     cafe: "Cappuccino",
-    type: ["short", "regular", "large"],
+    size: ["short", "regular", "large"],
     isVegan: false,
     price: [4.5, 5.5, 6.5],
+    extras: ["soya milk", " almond milk", "oat milk"],
   },
   {
     cafe: "Long Black",
-    type: ["short", "regular", "large"],
+    size: ["short", "regular", "large"],
     isVegan: true,
     price: [4.5, 5.5, 6.5],
-  },
-  {
-    extras: {
-      milk: ["soya", "almond", "oat"],
-    },
+    extras: ["soya milk", " almond milk", " oat milk"],
   },
 ];
