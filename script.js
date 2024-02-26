@@ -60,6 +60,7 @@ const breakyMenu = [
     items: ["banana", "flour", "eggs"],
     type: "Breakfast",
     isVegan: false,
+    isGlutenfree: true,
     price: 8.5,
   },
   {
@@ -67,6 +68,7 @@ const breakyMenu = [
     items: ["eggs", "bacon", "cheese"],
     type: "Breakfast",
     isVegan: false,
+    isGlutenfree: false,
     price: 15,
   },
   {
@@ -74,6 +76,7 @@ const breakyMenu = [
     items: ["acai", "pineapple", "granola"],
     type: "Breakfast",
     isVegan: true,
+    isGlutenfree: true,
     price: 17.5,
   },
 ];
@@ -97,7 +100,7 @@ function displayLunchMenu(lunch) {
     }</strong></th>
    </tr>
    <tr>
-   <tr><td>Ingredients: ${lunchItem.items.join(", ")}</td></tr>
+   <tr><td>${lunchItem.items.join(", ")}</td></tr>
    <tr><td>$${lunchItem.price}</td></tr>
     </tr>
     </table>
@@ -112,6 +115,7 @@ const lunchMenu = [
     items: ["dough", "tomato", "mushrooms", "vegan mozarella"],
     type: "Lunch",
     isVegan: true,
+    isGlutenfree: false,
     price: 20,
   },
   {
@@ -119,6 +123,7 @@ const lunchMenu = [
     items: ["rice", "currypaste", "chicken"],
     type: "Lunch",
     isVegan: false,
+    isGlutenfree: true,
     price: 18,
   },
   {
@@ -126,6 +131,7 @@ const lunchMenu = [
     items: ["ham", "cheese", "pumpkin"],
     type: "Lunch",
     isVegan: false,
+    isGlutenfree: false,
     price: 14.2,
   },
 ];
@@ -177,8 +183,9 @@ const drinksMenu = [
 ];
 
 //email submiting form
-function submitForm() {
+function submitForm(event) {
   alert("The form was submitted");
+  event.preventDefault();
 }
 
 //filtering the gluten free options form the menu
