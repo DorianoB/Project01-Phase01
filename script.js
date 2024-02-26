@@ -157,21 +157,21 @@ function displayDrinksMenu(drinks) {
 const drinksMenu = [
   {
     cafe: "Flat White",
-    size: ["short", "regular", "large"],
+    size: ["small", "medium", "large"],
     isVegan: false,
     price: [4.5, 5.5, 6.5],
     extras: ["soya milk", " almond milk", " oat milk"],
   },
   {
     cafe: "Cappuccino",
-    size: ["short", "regular", "large"],
+    size: ["small", "medium", "large"],
     isVegan: false,
     price: [4.5, 5.5, 6.5],
     extras: ["soya milk", " almond milk", "oat milk"],
   },
   {
     cafe: "Long Black",
-    size: ["short", "regular", "large"],
+    size: ["small", "medium", "large"],
     isVegan: true,
     price: [4.5, 5.5, 6.5],
     extras: ["soya milk", " almond milk", " oat milk"],
