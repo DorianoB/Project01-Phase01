@@ -21,7 +21,7 @@ margin-top: 10px;
     width: 300px;
     left: 6%;
     margin-bottom: 20px;
-
+    border: solid 1px black;
 }
 .coffeMachine {
     position: relative;
@@ -29,13 +29,15 @@ margin-top: 10px;
     height: 330px;
     left: 3%;
     margin-bottom: 0px;
-    /* border-radius: 20px; */
+    border: solid 1px black;
 }
 .beans {
     position: relative;
     width: 320px;
     left: 11%;
     margin-bottom: 20px;
+    border: solid 1px black;
+
 }
 .meal {
     position: relative;
@@ -43,13 +45,14 @@ margin-top: 10px;
     height: 330px;
     left: 7%;
     margin-bottom: 0px;
-    /* border-radius: 20px; */
+    border: solid 1px black;
 }
 
 .navbar {
     font-family: 'Courier New', monospace;
     margin-top: 20px;
 }
+
 #glutenFree{
     position: relative;
     right: 15%;
@@ -109,6 +112,7 @@ margin-top: 10px;
     font-size: 20px;
     margin-left: 25%;
     margin-top: 3%;
+    margin-bottom: 2%;
     margin-right: 30%; 
     text-align: left;
 } 
