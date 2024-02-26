@@ -177,3 +177,16 @@ const drinksMenu = [
     extras: ["soya milk", " almond milk", " oat milk"],
   },
 ];
+
+//email submiting form
+function submitForm() {
+  alert("The form was submitted");
+}
+
+//filtering the gluten free options form the menu
+const glutenFree = document.querySelector("#glutenFree");
+glutenFree.addEventListener("click", function () {
+  displayGlutenFree(breakyMenu, lunchMenu);
+});
+
+function displayGlutenFree(glutenFree) {}
