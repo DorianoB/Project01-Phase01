@@ -1,41 +1,39 @@
 const aboutusClick = document.querySelector(".aboutus");
 const menuContainer = document.getElementById("menuContainer");
+const aboutUsContainer = document.getElementById("aboutUsContainer");
+let isBreakyOpen = false;
+let isLunchOpen = false;
+let isDrinksOpen = false;
 
 aboutusClick.addEventListener("click", function () {
-  displayaboutUs(aboutUs);
+  displayaboutUs();
 });
-function displayaboutUs(aboutus) {
-  menuContainer.innerHTML = "";
-
-  for (let menuItem of aboutus) {
-    const listItem = document.createElement("div");
-
-    listItem.innerHTML = `
-    ${menuItem.story}  
-    `;
-    menuContainer.appendChild(listItem);
-  }
+function displayaboutUs() {
+  aboutUsContainer.style.display = "block";
+  menuContainer.style.display = "none";
+  // for (let menuItem of aboutus) {
+  //   const listItem = document.createElement("div");
+  //   listItem.innerHTML = `
+  //   ${menuItem.story}
+  //   `;
+  //   menuContainer.appendChild(listItem);
+  // }
 }
 
-const aboutUs = [
-  {
-    story:
-      "Welcome to The <strong>Green Leaf Cafe</strong>! Nestled in our vibrant cafe now proudly serves freshly brewed coffee sourced directly from the lush landscapes of Colombia. Immerse yourself in the rich flavors and aromatic notes of our carefully selected beans. Join us at our welcoming space, where the essence of Colombian coffee meets the cozy atmosphere of the Green Leaf Cafe. Experience the perfect blend of nature and indulgence in every cup at our latest venture.",
-  },
-];
 const lopueClick = document.querySelector(".lopue");
 const cart = document.querySelector(".fa");
-const submitClick = document.querySelector("#submit");
 
 const breakfast = document.querySelector(".breaky");
 breakfast.addEventListener("click", function () {
-  displayBreakyMenu(breakyMenu);
+  displayBreakyMenu();
 });
 
-function displayBreakyMenu(breaky) {
+function displayBreakyMenu() {
+  menuContainer.style.display = "block";
+  aboutUsContainer.style.display = "none";
   menuContainer.innerHTML = "";
 
-  for (let menuItem of breaky) {
+  for (let menuItem of breakyMenu) {
     const listItem = document.createElement("div");
 
     listItem.innerHTML = `
@@ -83,13 +81,15 @@ const breakyMenu = [
 
 const lunch = document.querySelector(".lunch");
 lunch.addEventListener("click", function () {
-  displayLunchMenu(lunchMenu);
+  displayLunchMenu();
 });
 
-function displayLunchMenu(lunch) {
+function displayLunchMenu() {
+  menuContainer.style.display = "block";
+  aboutUsContainer.style.display = "none";
   menuContainer.innerHTML = "";
 
-  for (let lunchItem of lunch) {
+  for (let lunchItem of lunchMenu) {
     const listItem = document.createElement("div");
 
     listItem.innerHTML = `
@@ -138,22 +138,24 @@ const lunchMenu = [
 
 const drinks = document.querySelector(".drinks");
 drinks.addEventListener("click", function () {
-  displayDrinksMenu(drinksMenu);
+  displayDrinksMenu();
 });
 
-function displayDrinksMenu(drinks) {
+function displayDrinksMenu() {
+  menuContainer.style.display = "block";
+  aboutUsContainer.style.display = "none";
   menuContainer.innerHTML = "";
 
-  for (let drinksMenu of drinks) {
+  for (let drink of drinksMenu) {
     const listItem = document.createElement("div");
     listItem.innerHTML = `
     <table>
     <tr>
-    <th><strong>${drinksMenu.cafe}</strong></th>
+    <th><strong>${drink.cafe}</strong></th>
     </tr>
-    <tr><td>${drinksMenu.size.join(", ")}</td></tr>
-    <tr><td>$${drinksMenu.price.join(" / $")}</td></tr>
-    <tr><td>Extras $2: ${drinksMenu.extras}</td></tr>
+    <tr><td>${drink.size.join(", ")}</td></tr>
+    <tr><td>$${drink.price.join(" / $")}</td></tr>
+    <tr><td>Extras $2: ${drink.extras}</td></tr>
     </table>
     `;
 
@@ -183,6 +185,7 @@ const drinksMenu = [
 ];
 
 //email submiting form
+const submitClick = document.querySelector("#submit");
 function submitForm(event) {
   alert("The form was submitted");
   event.preventDefault();
@@ -190,8 +193,12 @@ function submitForm(event) {
 
 //filtering the gluten free options form the menu
 const glutenFree = document.querySelector("#glutenFree");
-glutenFree.addEventListener("click", function () {
+glutenFree.addEventListener("change", function () {
   displayGlutenFree(breakyMenu, lunchMenu);
 });
 
-function displayGlutenFree(glutenFree) {}
+function displayGlutenFree(menu) {
+  const glutenFreeOptions = menu.filter(function (element) {
+    return element.isGlutenfree;
+  });
+}
