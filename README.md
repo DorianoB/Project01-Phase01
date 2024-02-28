@@ -1,6 +1,6 @@
 # Project01-Phase01 Academy Xi School
 
-The Project01-Phase01 Academy Xi School is a simple webapplication about a small coffe shop called, "The Green Leaf" with some dropdown menus, pictures and a submit form to keep up to date with the latest news off the Cafe.
+The Project01-Phase01 Academy Xi School is a simple webapplication about a small Restaurant/Coffe shop called, "The Green Leaf" with some dropdown menus, pictures and a submit form to keep up to date with the latest news off the Restaurant.
 
 ## Table of Contents
 
@@ -13,114 +13,58 @@ The Project01-Phase01 Academy Xi School is a simple webapplication about a small
 4. [Usage](#Usage)
 5. [Roadmap](#Roadmap)
 6. [Contributing](#Contribution)
-7. [License](#License)
-8. [Contact](#Contact)
-9. [Acknowledgments](#Acknowledments)
+7. [Contact](#Contact)
+8. [Acknowledgments](#Acknowledments)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Built with
 
-- [![JavaScript][https://www.javascript.com/]][-url]
+- JavaScript
+- json-server
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get started you need to fork and clone this repo to your local machine by cloning the following link and follow the installations steps'
+
+git@github.com:DorianoB/Project01-Phase01.git
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
+- json-server
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Fork the repo to your local machine.
+
+2. Clone the repo with the following link.
    ```sh
    git clone git@github.com:DorianoB/Project01-Phase01.git
    ```
-3. Install NPM packages
+3. Install jason-server with this link
    ```sh
-   npm install
+   https://www.npmjs.com/package/json-server
    ```
-4. Enter your API in `config.js`
+4. After installing json-server run this code in your termial to access the page.
+
    ```js
-   const API_KEY = "ENTER YOUR API";
+   npx json-server db.json
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
-
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTACT -->
 
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Doriano Bergamin - doriano.bergamin18@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/DorianoB/Project01-Phase01](https://github.com/DorianoB/Project01-Phase01)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- ACKNOWLEDGMENTS -->
-
 ## Acknowledgments
 
-- []()
-- []()
-- []()
+- Pictures from: [https://www.nextdoorespresso.com.au/](https://www.nextdoorespresso.com.au/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
