@@ -54,9 +54,8 @@ margin-top: 10px;
     margin-top: 20px;
 }
 
-#glutenFree{
+.glutenFree{
     position: relative;
-    right: 18%;
 }
 
 .loupe {
@@ -114,7 +113,7 @@ margin-top: 10px;
   } 
 .drinks {
     margin-left: 7%;
-    margin-right: 23%;
+    margin-right: 7%;
     cursor: pointer;
 }
 .drinks:hover {

@@ -3,6 +3,8 @@ const menuContainer = document.getElementById("menuContainer");
 const aboutUsContainer = document.getElementById("aboutUsContainer");
 let isBreakyOpen = false;
 let isLunchOpen = false;
+let isDinnerOpen = false;
+let isDessertOpen = false;
 let isDrinksOpen = false;
 
 let menus = [
@@ -122,25 +124,28 @@ let menus = [
         cafe: "Flat White",
         size: ["small", "medium", "large"],
         price: [4.5, 5.5, 6.5],
-        extras: ["soya milk", " almond milk", " oat milk"],
       },
       {
         cafe: "Cappuccino",
         size: ["small", "medium", "large"],
         price: [4.5, 5.5, 6.5],
-        extras: ["soya milk", " almond milk", "oat milk"],
       },
       {
         cafe: "Long Black",
         size: ["small", "medium", "large"],
         price: [4.5, 5.5, 6.5],
-        extras: ["soya milk", " almond milk", " oat milk"],
       },
     ],
+    extras: ["soya milk", " almond milk", " oat milk"],
   },
 ];
 
 aboutusClick.addEventListener("click", function () {
+  isBreakyOpen = false;
+  isLunchOpen = false;
+  isDinnerOpen = false;
+  isDessertOpen = false;
+  isDrinksOpen = false;
   displayaboutUs();
 });
 
@@ -154,21 +159,41 @@ function displayaboutUs() {
 
 const breakfast = document.querySelector(".breaky");
 breakfast.addEventListener("click", function () {
+  isBreakyOpen = true;
+  isLunchOpen = false;
+  isDinnerOpen = false;
+  isDessertOpen = false;
+  isDrinksOpen = false;
   displayMenu("breakfast");
 });
 
 const lunch = document.querySelector(".lunch");
 lunch.addEventListener("click", function () {
+  isBreakyOpen = false;
+  isLunchOpen = true;
+  isDinnerOpen = false;
+  isDessertOpen = false;
+  isDrinksOpen = false;
   displayMenu("lunch");
 });
 
 const dinner = document.querySelector(".dinner");
 dinner.addEventListener("click", function () {
+  isBreakyOpen = false;
+  isLunchOpen = false;
+  isDinnerOpen = true;
+  isDessertOpen = false;
+  isDrinksOpen = false;
   displayMenu("dinner");
 });
 
 const dessert = document.querySelector(".dessert");
 dessert.addEventListener("click", function () {
+  isBreakyOpen = false;
+  isLunchOpen = false;
+  isDinnerOpen = false;
+  isDessertOpen = true;
+  isDrinksOpen = false;
   displayMenu("dessert");
 });
 
@@ -181,9 +206,15 @@ function displayMenu(menuType) {
     return menu.menuType === menuType;
   });
 
-  console.log(menu);
+  let menuItems = menu[0].items;
 
-  for (let menuItem of menu[0].items) {
+  if (document.getElementById("glutenFreeCheckbox").checked) {
+    menuItems = menu[0].items.filter((mi) => {
+      return mi.isGlutenfree === true;
+    });
+  }
+
+  for (let menuItem of menuItems) {
     const listItem = document.createElement("div");
 
     listItem.innerHTML = `
@@ -205,6 +236,11 @@ function displayMenu(menuType) {
 
 const drinks = document.querySelector(".drinks");
 drinks.addEventListener("click", function () {
+  isBreakyOpen = false;
+  isLunchOpen = false;
+  isDinnerOpen = false;
+  isDessertOpen = false;
+  isDrinksOpen = true;
   displayDrinksMenu();
 });
 
@@ -226,12 +262,20 @@ function displayDrinksMenu() {
     </tr>
     <tr><td>${drink.size.join(", ")}</td></tr>
     <tr><td>$${drink.price.join(" / $")}</td></tr>
-    <tr><td>Extras $2: ${drink.extras}</td></tr>
     </table>
     `;
 
     menuContainer.appendChild(listItem);
   }
+
+  const extras = document.createElement("div");
+  extras.innerHTML = `
+    <table>
+    <tr><td><strong>Extras $2</strong>: ${drinksMenu[0].extras}</td></tr>
+    </table>
+    `;
+
+  menuContainer.appendChild(extras);
 }
 
 //email submiting form
@@ -242,9 +286,27 @@ function submitForm(event) {
 }
 
 //filtering the gluten free options form the menu
-const glutenFree = document.querySelector("#glutenFree");
+const glutenFree = document.querySelector("#glutenFreeCheckbox");
 glutenFree.addEventListener("change", function () {
-  displayGlutenFree(breakyMenu, lunchMenu);
+  if (isBreakyOpen) {
+    displayMenu("breakfast");
+  }
+
+  if (isLunchOpen) {
+    displayMenu("lunch");
+  }
+
+  if (isDinnerOpen) {
+    displayMenu("dinner");
+  }
+
+  if (isDessertOpen) {
+    displayMenu("dessert");
+  }
+
+  if (isDrinksOpen) {
+    displayDrinksMenu();
+  }
 });
 
 function displayGlutenFree(menu) {
