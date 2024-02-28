@@ -56,7 +56,7 @@ margin-top: 10px;
 
 #glutenFree{
     position: relative;
-    right: 15%;
+    right: 18%;
 }
 
 .loupe {
@@ -76,7 +76,7 @@ margin-top: 10px;
   } 
 
 .aboutus {
-    margin-left: 10%;
+    margin-left: 7%;
     cursor: pointer;
 }
 .aboutus:hover {
@@ -84,7 +84,7 @@ margin-top: 10px;
   }
 
 .breaky {
-    margin-left: 10%;
+    margin-left: 7%;
     cursor: pointer;
 }
 .breaky:hover {
@@ -92,15 +92,28 @@ margin-top: 10px;
   } 
 
 .lunch {
-    margin-left: 10%;
+    margin-left: 7%;
     cursor: pointer;
 }
 .lunch:hover {
     text-decoration: underline;
   } 
-
+  .dinner {
+    margin-left: 7%;
+    cursor: pointer;
+}
+.dinner:hover {
+    text-decoration: underline;
+  } 
+  .dessert {
+    margin-left: 7%;
+    cursor: pointer;
+}
+.dessert:hover {
+    text-decoration: underline;
+  } 
 .drinks {
-    margin-left: 10%;
+    margin-left: 7%;
     margin-right: 23%;
     cursor: pointer;
 }
