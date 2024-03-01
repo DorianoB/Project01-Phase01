@@ -14,54 +14,139 @@ h1 {
 width: 130px;
 margin-left: 54%;
 border-radius: 50%;
-margin-top: 10px;}
+margin-top: 10px;
+}
+.coffe {
+    position: relative;
+    width: 300px;
+    left: 6%;
+    margin-bottom: 20px;
+    border: solid 1px black;
+    margin-top: 2%;
+}
+.coffeMachine {
+    position: relative;
+    width: 273px;
+    height: 330px;
+    left: 3%;
+    margin-bottom: 0px;
+    border: solid 1px black;
+}
+.beans {
+    position: relative;
+    width: 320px;
+    left: 11%;
+    margin-bottom: 20px;
+    border: solid 1px black;
+
+}
+.meal {
+    position: relative;
+    width: 273px;
+    height: 330px;
+    left: 7%;
+    margin-bottom: 0px;
+    border: solid 1px black;
+}
 
 .navbar {
     font-family: 'Courier New', monospace;
-    margin-left: 10%;
     margin-top: 20px;
 }
 
+.glutenFree{
+    position: relative;
+}
+
 .loupe {
-    width: 25px;
+    position: relative;
+    right: 7%;
+    width: 23px;
     margin-right: 10px;
     cursor: pointer;
 }
-
 .fa {
+    position: relative;
+    right: 7%;
     cursor: pointer;
-
 }
+.fa:hover {
+    text-decoration: underline;
+  } 
 
 .aboutus {
-    margin-left: 10%;
+    margin-left: 7%;
     cursor: pointer;
 }
+.aboutus:hover {
+    text-decoration: underline;
+  }
+
 .breaky {
-    margin-left: 10%;
+    margin-left: 7%;
     cursor: pointer;
-
 }
+.breaky:hover {
+    text-decoration: underline;
+  } 
+
 .lunch {
-    margin-left: 10%;
+    margin-left: 7%;
     cursor: pointer;
-
 }
+.lunch:hover {
+    text-decoration: underline;
+  } 
+  .dinner {
+    margin-left: 7%;
+    cursor: pointer;
+}
+.dinner:hover {
+    text-decoration: underline;
+  } 
+  .dessert {
+    margin-left: 7%;
+    cursor: pointer;
+}
+.dessert:hover {
+    text-decoration: underline;
+  } 
 .drinks {
-    margin-left: 10%;
-    margin-right: 25%;
+    margin-left: 7%;
+    margin-right: 7%;
     cursor: pointer;
-
 }
- .footer {
+.drinks:hover {
+    text-decoration: underline;
+  } 
+
+#menuContainer,#aboutUsContainer {
     font-family: 'Courier New', monospace;
-    margin-top: 25%;
+    font-size: 20px;
+    margin-left: 25%;
+    margin-top: 3%;
+    /* margin-bottom: 2%; */
+    margin-right: 30%; 
+    text-align: left;
+    display: none;
+    background-color:burlywood;
+    border: solid 1px black;
+    border-radius: 20px;
+    padding: 20px;
+} 
+
+ .footer{
+    position: relative;
+    font-family: 'Courier New', monospace;
+    margin-top: 10px;
     margin-left: 9%;
+    margin-bottom: 10px;
  }
  
  .icons {
     width: 30px;
-    margin-right: 5px;
+    padding: left 0;
+    margin: left 5px;;
  }
 
  hr {
@@ -70,13 +155,14 @@ margin-top: 10px;}
 
 .footertext {
     font-family: 'Courier New', monospace;
-    margin-left: 18%;
-    margin-top: 30px;
+    margin-left: 35%;
+    margin-top: 40px;
     font-weight: bold;
 }
 
-.email {
-    margin-left: 18%;
+#emailform {
+    margin-left: 35%;
+    margin-bottom: 20px;
 }
 
 #email {
@@ -85,7 +171,6 @@ margin-top: 10px;}
     width: 300px;
     border-radius: 8px;
     background-color: #FAFAFA;
-    margin-bottom: 15px;
 }
 #submit {
     height: 33px;
@@ -93,5 +178,5 @@ margin-top: 10px;}
     border: none;
     background-color: #FAFAFA;
     border-radius: 8px;
-
+    cursor: pointer;
 }
