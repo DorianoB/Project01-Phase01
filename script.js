@@ -1,197 +1,234 @@
-const aboutusClick = document.querySelector(".aboutus");
 const menuContainer = document.getElementById("menuContainer");
+const aboutUsContainer = document.getElementById("aboutUsContainer");
 
-aboutusClick.addEventListener("click", function () {
-  displayaboutUs(aboutUs);
+//these variables are for keeping track of the open menu items
+let aboutUsOpen = false;
+let isBreakyOpen = false;
+let isLunchOpen = false;
+let isDinnerOpen = false;
+let isDessertOpen = false;
+let isDrinksOpen = false;
+
+document.body.addEventListener("click", function () {
+  homeScreen();
 });
-function displayaboutUs(aboutus) {
-  menuContainer.innerHTML = "";
+function homeScreen() {
+  const aboutUsContainer = document.getElementById("aboutUsContainer");
+  const menuContainer = document.getElementById("menuContainer");
 
-  for (let menuItem of aboutus) {
-    const listItem = document.createElement("div");
-
-    listItem.innerHTML = `
-    ${menuItem.story}  
-    `;
-    menuContainer.appendChild(listItem);
+  if (aboutUsOpen && aboutUsContainer) {
+    aboutUsContainer.style.display = "none";
+    aboutUsOpen = false;
+  }
+  if (isBreakyOpen && menuContainer) {
+    menuContainer.style.display = "none";
+    isBreakyOpen = false;
+  }
+  if (isLunchOpen && menuContainer) {
+    menuContainer.style.display = "none";
+    isLunchOpen = false;
+  }
+  if (isDinnerOpen && menuContainer) {
+    menuContainer.style.display = "none";
+    isDinnerOpen = false;
+  }
+  if (isDessertOpen && menuContainer) {
+    menuContainer.style.display = "none";
+    isDessertOpen = false;
+  }
+  if (isDrinksOpen && menuContainer) {
+    menuContainer.style.display = "none";
+    isDrinksOpen = false;
   }
 }
 
-const aboutUs = [
-  {
-    story:
-      "Welcome to The <strong>Green Leaf Cafe</strong>! Nestled in our vibrant cafe now proudly serves freshly brewed coffee sourced directly from the lush landscapes of Colombia. Immerse yourself in the rich flavors and aromatic notes of our carefully selected beans. Join us at our welcoming space, where the essence of Colombian coffee meets the cozy atmosphere of the Green Leaf Cafe. Experience the perfect blend of nature and indulgence in every cup at our latest venture.",
-  },
-];
-const lopueClick = document.querySelector(".lopue");
-const cart = document.querySelector(".fa");
-const submitClick = document.querySelector("#submit");
-
-const breakfast = document.querySelector(".breaky");
-breakfast.addEventListener("click", function () {
-  displayBreakyMenu(breakyMenu);
+document.querySelector(".aboutus").addEventListener("click", function (event) {
+  aboutUsOpen = true;
+  isBreakyOpen = false;
+  isLunchOpen = false;
+  isDinnerOpen = false;
+  isDessertOpen = false;
+  isDrinksOpen = false;
+  displayaboutUs();
+  event.stopPropagation();
 });
 
-function displayBreakyMenu(breaky) {
+//displays the about us container and hides the menu container
+function displayaboutUs() {
+  aboutUsContainer.style.display = "block";
+  menuContainer.style.display = "none";
+}
+
+// const lopueClick = document.querySelector(".lopue");
+// const cart = document.querySelector(".fa");
+
+document.querySelector(".breaky").addEventListener("click", function (event) {
+  aboutUsOpen = false;
+  isBreakyOpen = true;
+  isLunchOpen = false;
+  isDinnerOpen = false;
+  isDessertOpen = false;
+  isDrinksOpen = false;
+  displayMenu("breakfast");
+  event.stopPropagation();
+});
+
+document.querySelector(".lunch").addEventListener("click", function (event) {
+  aboutUsOpen = false;
+  isBreakyOpen = false;
+  isLunchOpen = true;
+  isDinnerOpen = false;
+  isDessertOpen = false;
+  isDrinksOpen = false;
+  displayMenu("lunch");
+  event.stopPropagation();
+});
+
+document.querySelector(".dinner").addEventListener("click", function (event) {
+  aboutUsOpen = false;
+  isBreakyOpen = false;
+  isLunchOpen = false;
+  isDinnerOpen = true;
+  isDessertOpen = false;
+  isDrinksOpen = false;
+  displayMenu("dinner");
+  event.stopPropagation();
+});
+
+document.querySelector(".dessert").addEventListener("click", function (event) {
+  aboutUsOpen = false;
+  isBreakyOpen = false;
+  isLunchOpen = false;
+  isDinnerOpen = false;
+  isDessertOpen = true;
+  isDrinksOpen = false;
+  displayMenu("dessert");
+  event.stopPropagation();
+});
+
+function displayMenu(menuType) {
+  menuContainer.style.display = "block";
+  aboutUsContainer.style.display = "none";
   menuContainer.innerHTML = "";
 
-  for (let menuItem of breaky) {
-    const listItem = document.createElement("div");
+  //will call the self-created API and return the list of menus
+  fetch("http://localhost:3000/menus").then((response) => {
+    response.json().then((results) => {
+      //filtering the menu
+      const menu = results.find((menu) => {
+        return menu.menuType === menuType;
+      });
 
-    listItem.innerHTML = `
+      let menuItems = menu.items;
+
+      if (document.getElementById("glutenFreeCheckbox").checked) {
+        menuItems = menu.items.filter((mi) => {
+          return mi.isGlutenfree === true;
+        });
+      }
+
+      for (let menuItem of menuItems) {
+        const listItem = document.createElement("div");
+
+        listItem.innerHTML = `
+          <table>
+          <tr>
+         <th><strong>${menuItem.food}${
+          menuItem.isVegan ? "(V)" : ""
+        }</strong></th>
+         </tr>
+         <tr>
+         <tr><td>${menuItem.items.join(", ")}</td></tr>
+         <tr><td>$${menuItem.price}</td></tr>
+          </tr>
+          </table>
+        `;
+        menuContainer.appendChild(listItem);
+      }
+    });
+  });
+}
+
+document.querySelector(".drinks").addEventListener("click", function (event) {
+  aboutUsOpen = false;
+  isBreakyOpen = false;
+  isLunchOpen = false;
+  isDinnerOpen = false;
+  isDessertOpen = false;
+  isDrinksOpen = true;
+  displayDrinksMenu();
+  event.stopPropagation();
+});
+
+function displayDrinksMenu() {
+  menuContainer.style.display = "block";
+  aboutUsContainer.style.display = "none";
+  menuContainer.innerHTML = "";
+
+  fetch("http://localhost:3000/menus").then((response) => {
+    response.json().then((results) => {
+      const drinksMenu = results.find((menu) => {
+        return menu.menuType === "drinks";
+      });
+
+      for (let drink of drinksMenu.items) {
+        const listItem = document.createElement("div");
+        listItem.innerHTML = `
         <table>
         <tr>
-       <th><strong>${menuItem.food}${
-      menuItem.isVegan ? "(V)" : ""
-    }</strong></th>
-       </tr>
-       <tr>
-       <tr><td>${menuItem.items.join(", ")}</td></tr>
-       <tr><td>$${menuItem.price}</td></tr>
+        <th><strong>${drink.cafe}</strong></th>
         </tr>
+        <tr><td>${drink.size.join(", ")}</td></tr>
+        <tr><td>$${drink.price.join(" / $")}</td></tr>
         </table>
-      `;
-    menuContainer.appendChild(listItem);
-  }
+        `;
+
+        menuContainer.appendChild(listItem);
+      }
+
+      const extras = document.createElement("div");
+      extras.innerHTML = `
+        <table>
+        <tr><td><strong>Extras $2</strong>: ${drinksMenu.extras}</td></tr>
+        </table>
+        `;
+
+      menuContainer.appendChild(extras);
+    });
+  });
 }
-const breakyMenu = [
-  {
-    food: "Banana Bread",
-    items: ["banana", "flour", "eggs"],
-    type: "Breakfast",
-    isVegan: false,
-    isGlutenfree: true,
-    price: 8.5,
-  },
-  {
-    food: "Breaky Roll",
-    items: ["eggs", "bacon", "cheese"],
-    type: "Breakfast",
-    isVegan: false,
-    isGlutenfree: false,
-    price: 15,
-  },
-  {
-    food: "Acai Bowl",
-    items: ["acai", "pineapple", "granola"],
-    type: "Breakfast",
-    isVegan: true,
-    isGlutenfree: true,
-    price: 17.5,
-  },
-];
-
-const lunch = document.querySelector(".lunch");
-lunch.addEventListener("click", function () {
-  displayLunchMenu(lunchMenu);
-});
-
-function displayLunchMenu(lunch) {
-  menuContainer.innerHTML = "";
-
-  for (let lunchItem of lunch) {
-    const listItem = document.createElement("div");
-
-    listItem.innerHTML = `
-    <table>
-    <tr>
-    <th><strong>${lunchItem.food}${
-      lunchItem.isVegan ? " (V)" : ""
-    }</strong></th>
-   </tr>
-   <tr>
-   <tr><td>${lunchItem.items.join(", ")}</td></tr>
-   <tr><td>$${lunchItem.price}</td></tr>
-    </tr>
-    </table>
-    `;
-
-    menuContainer.appendChild(listItem);
-  }
-}
-const lunchMenu = [
-  {
-    food: "Pizza",
-    items: ["dough", "tomato", "mushrooms", "vegan mozarella"],
-    type: "Lunch",
-    isVegan: true,
-    isGlutenfree: false,
-    price: 20,
-  },
-  {
-    food: "Chicken Curry",
-    items: ["rice", "currypaste", "chicken"],
-    type: "Lunch",
-    isVegan: false,
-    isGlutenfree: true,
-    price: 18,
-  },
-  {
-    food: "Sourdough Sandwich",
-    items: ["ham", "cheese", "pumpkin"],
-    type: "Lunch",
-    isVegan: false,
-    isGlutenfree: false,
-    price: 14.2,
-  },
-];
-
-const drinks = document.querySelector(".drinks");
-drinks.addEventListener("click", function () {
-  displayDrinksMenu(drinksMenu);
-});
-
-function displayDrinksMenu(drinks) {
-  menuContainer.innerHTML = "";
-
-  for (let drinksMenu of drinks) {
-    const listItem = document.createElement("div");
-    listItem.innerHTML = `
-    <table>
-    <tr>
-    <th><strong>${drinksMenu.cafe}</strong></th>
-    </tr>
-    <tr><td>${drinksMenu.size.join(", ")}</td></tr>
-    <tr><td>$${drinksMenu.price.join(" / $")}</td></tr>
-    <tr><td>Extras $2: ${drinksMenu.extras}</td></tr>
-    </table>
-    `;
-
-    menuContainer.appendChild(listItem);
-  }
-}
-
-const drinksMenu = [
-  {
-    cafe: "Flat White",
-    size: ["small", "medium", "large"],
-    price: [4.5, 5.5, 6.5],
-    extras: ["soya milk", " almond milk", " oat milk"],
-  },
-  {
-    cafe: "Cappuccino",
-    size: ["small", "medium", "large"],
-    price: [4.5, 5.5, 6.5],
-    extras: ["soya milk", " almond milk", "oat milk"],
-  },
-  {
-    cafe: "Long Black",
-    size: ["small", "medium", "large"],
-    price: [4.5, 5.5, 6.5],
-    extras: ["soya milk", " almond milk", " oat milk"],
-  },
-];
 
 //email submiting form
-function submitForm(event) {
-  alert("The form was submitted");
-  event.preventDefault();
-}
+document
+  .querySelector("#emailform")
+  .addEventListener("submit", function (event) {
+    alert("The form was submitted");
+    event.preventDefault();
+  });
 
 //filtering the gluten free options form the menu
-const glutenFree = document.querySelector("#glutenFree");
-glutenFree.addEventListener("click", function () {
-  displayGlutenFree(breakyMenu, lunchMenu);
-});
+document
+  .querySelector("#glutenFreeCheckbox")
+  .addEventListener("change", function (event) {
+    if (isBreakyOpen) {
+      displayMenu("breakfast");
+    }
 
-function displayGlutenFree(glutenFree) {}
+    if (isLunchOpen) {
+      displayMenu("lunch");
+    }
+
+    if (isDinnerOpen) {
+      displayMenu("dinner");
+    }
+
+    if (isDessertOpen) {
+      displayMenu("dessert");
+    }
+
+    if (isDrinksOpen) {
+      displayDrinksMenu();
+    }
+
+    event.stopPropagation();
+  });

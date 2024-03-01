@@ -22,6 +22,7 @@ margin-top: 10px;
     left: 6%;
     margin-bottom: 20px;
     border: solid 1px black;
+    margin-top: 2%;
 }
 .coffeMachine {
     position: relative;
@@ -53,9 +54,8 @@ margin-top: 10px;
     margin-top: 20px;
 }
 
-#glutenFree{
+.glutenFree{
     position: relative;
-    right: 15%;
 }
 
 .loupe {
@@ -75,7 +75,7 @@ margin-top: 10px;
   } 
 
 .aboutus {
-    margin-left: 10%;
+    margin-left: 7%;
     cursor: pointer;
 }
 .aboutus:hover {
@@ -83,7 +83,7 @@ margin-top: 10px;
   }
 
 .breaky {
-    margin-left: 10%;
+    margin-left: 7%;
     cursor: pointer;
 }
 .breaky:hover {
@@ -91,30 +91,48 @@ margin-top: 10px;
   } 
 
 .lunch {
-    margin-left: 10%;
+    margin-left: 7%;
     cursor: pointer;
 }
 .lunch:hover {
     text-decoration: underline;
   } 
-
+  .dinner {
+    margin-left: 7%;
+    cursor: pointer;
+}
+.dinner:hover {
+    text-decoration: underline;
+  } 
+  .dessert {
+    margin-left: 7%;
+    cursor: pointer;
+}
+.dessert:hover {
+    text-decoration: underline;
+  } 
 .drinks {
-    margin-left: 10%;
-    margin-right: 23%;
+    margin-left: 7%;
+    margin-right: 7%;
     cursor: pointer;
 }
 .drinks:hover {
     text-decoration: underline;
   } 
 
-#menuContainer {
+#menuContainer,#aboutUsContainer {
     font-family: 'Courier New', monospace;
     font-size: 20px;
     margin-left: 25%;
     margin-top: 3%;
-    margin-bottom: 2%;
+    /* margin-bottom: 2%; */
     margin-right: 30%; 
     text-align: left;
+    display: none;
+    background-color:burlywood;
+    border: solid 1px black;
+    border-radius: 20px;
+    padding: 20px;
 } 
 
  .footer{
@@ -137,13 +155,14 @@ margin-top: 10px;
 
 .footertext {
     font-family: 'Courier New', monospace;
-    margin-left: 18%;
+    margin-left: 35%;
     margin-top: 40px;
     font-weight: bold;
 }
 
-.email {
-    margin-left: 18%;
+#emailform {
+    margin-left: 35%;
+    margin-bottom: 20px;
 }
 
 #email {
