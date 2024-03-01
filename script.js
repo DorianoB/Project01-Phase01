@@ -1,19 +1,56 @@
 const menuContainer = document.getElementById("menuContainer");
 const aboutUsContainer = document.getElementById("aboutUsContainer");
+
 //these variables are for keeping track of the open menu items
+let aboutUsOpen = false;
 let isBreakyOpen = false;
 let isLunchOpen = false;
 let isDinnerOpen = false;
 let isDessertOpen = false;
 let isDrinksOpen = false;
 
-document.querySelector(".aboutus").addEventListener("click", function () {
+document.body.addEventListener("click", function () {
+  homeScreen();
+});
+function homeScreen() {
+  const aboutUsContainer = document.getElementById("aboutUsContainer");
+  const menuContainer = document.getElementById("menuContainer");
+
+  if (aboutUsOpen && aboutUsContainer) {
+    aboutUsContainer.style.display = "none";
+    aboutUsOpen = false;
+  }
+  if (isBreakyOpen && menuContainer) {
+    menuContainer.style.display = "none";
+    isBreakyOpen = false;
+  }
+  if (isLunchOpen && menuContainer) {
+    menuContainer.style.display = "none";
+    isLunchOpen = false;
+  }
+  if (isDinnerOpen && menuContainer) {
+    menuContainer.style.display = "none";
+    isDinnerOpen = false;
+  }
+  if (isDessertOpen && menuContainer) {
+    menuContainer.style.display = "none";
+    isDessertOpen = false;
+  }
+  if (isDrinksOpen && menuContainer) {
+    menuContainer.style.display = "none";
+    isDrinksOpen = false;
+  }
+}
+
+document.querySelector(".aboutus").addEventListener("click", function (event) {
+  aboutUsOpen = true;
   isBreakyOpen = false;
   isLunchOpen = false;
   isDinnerOpen = false;
   isDessertOpen = false;
   isDrinksOpen = false;
   displayaboutUs();
+  event.stopPropagation();
 });
 
 //displays the about us container and hides the menu container
@@ -25,40 +62,48 @@ function displayaboutUs() {
 // const lopueClick = document.querySelector(".lopue");
 // const cart = document.querySelector(".fa");
 
-document.querySelector(".breaky").addEventListener("click", function () {
+document.querySelector(".breaky").addEventListener("click", function (event) {
+  aboutUsOpen = false;
   isBreakyOpen = true;
   isLunchOpen = false;
   isDinnerOpen = false;
   isDessertOpen = false;
   isDrinksOpen = false;
   displayMenu("breakfast");
+  event.stopPropagation();
 });
 
-document.querySelector(".lunch").addEventListener("click", function () {
+document.querySelector(".lunch").addEventListener("click", function (event) {
+  aboutUsOpen = false;
   isBreakyOpen = false;
   isLunchOpen = true;
   isDinnerOpen = false;
   isDessertOpen = false;
   isDrinksOpen = false;
   displayMenu("lunch");
+  event.stopPropagation();
 });
 
-document.querySelector(".dinner").addEventListener("click", function () {
+document.querySelector(".dinner").addEventListener("click", function (event) {
+  aboutUsOpen = false;
   isBreakyOpen = false;
   isLunchOpen = false;
   isDinnerOpen = true;
   isDessertOpen = false;
   isDrinksOpen = false;
   displayMenu("dinner");
+  event.stopPropagation();
 });
 
-document.querySelector(".dessert").addEventListener("click", function () {
+document.querySelector(".dessert").addEventListener("click", function (event) {
+  aboutUsOpen = false;
   isBreakyOpen = false;
   isLunchOpen = false;
   isDinnerOpen = false;
   isDessertOpen = true;
   isDrinksOpen = false;
   displayMenu("dessert");
+  event.stopPropagation();
 });
 
 function displayMenu(menuType) {
@@ -104,13 +149,15 @@ function displayMenu(menuType) {
   });
 }
 
-document.querySelector(".drinks").addEventListener("click", function () {
+document.querySelector(".drinks").addEventListener("click", function (event) {
+  aboutUsOpen = false;
   isBreakyOpen = false;
   isLunchOpen = false;
   isDinnerOpen = false;
   isDessertOpen = false;
   isDrinksOpen = true;
   displayDrinksMenu();
+  event.stopPropagation();
 });
 
 function displayDrinksMenu() {
@@ -162,7 +209,7 @@ document
 //filtering the gluten free options form the menu
 document
   .querySelector("#glutenFreeCheckbox")
-  .addEventListener("change", function () {
+  .addEventListener("change", function (event) {
     if (isBreakyOpen) {
       displayMenu("breakfast");
     }
@@ -182,4 +229,6 @@ document
     if (isDrinksOpen) {
       displayDrinksMenu();
     }
+
+    event.stopPropagation();
   });
