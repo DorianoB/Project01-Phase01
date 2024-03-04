@@ -114,7 +114,7 @@ function displayMenu(menuType) {
   //will call the self-created API and return the list of menus
   fetch("http://localhost:3000/menus").then((response) => {
     response.json().then((results) => {
-      //filtering the menu
+      //finding the menu
       const menu = results.find((menu) => {
         return menu.menuType === menuType;
       });
@@ -204,6 +204,21 @@ document
   .addEventListener("submit", function (event) {
     alert("The form was submitted");
     event.preventDefault();
+
+    let data = document.querySelector("#email").value;
+    fetch("http://localhost:3000/menus", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        dataValue: data,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => {});
   });
 
 //filtering the gluten free options form the menu

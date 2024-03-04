@@ -58,7 +58,7 @@ margin-top: 10px;
     position: relative;
 }
 
-.loupe {
+/* .loupe {
     position: relative;
     right: 7%;
     width: 23px;
@@ -70,9 +70,9 @@ margin-top: 10px;
     right: 7%;
     cursor: pointer;
 }
-.fa:hover {
+/* .fa:hover {
     text-decoration: underline;
-  } 
+  }  */
 
 .aboutus {
     margin-left: 7%;
@@ -147,18 +147,18 @@ margin-top: 10px;
     width: 30px;
     padding: left 0;
     margin: left 5px;;
- }
+ } 
 
  hr {
     border: 0.5px solid black
-}
+} 
 
 .footertext {
     font-family: 'Courier New', monospace;
     margin-left: 35%;
     margin-top: 40px;
     font-weight: bold;
-}
+} 
 
 #emailform {
     margin-left: 35%;
